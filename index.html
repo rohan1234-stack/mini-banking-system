@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Banking System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Data Structures Assignment</p>
+        <h1>Mini Banking System with Transaction Log</h1>
+        <p class="hero-copy">
+          A browser-hosted banking console that supports account creation, deposit,
+          withdrawal, account lookup, account summaries, file export, and a last-5
+          transaction history view.
+        </p>
+      </div>
+      <div class="hero-card">
+        <p class="hero-card-label">Storage Status</p>
+        <p class="hero-card-value" id="storageStatus">Using browser local storage</p>
+        <button class="secondary-button" id="clearDataButton" type="button">Reset Demo Data</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel panel-accent">
+        <div class="panel-heading">
+          <h2>Console Commands</h2>
+          <p>Use the forms or click commands below to log actions in the console.</p>
+        </div>
+        <div class="command-grid">
+          <button class="command-button" data-command="help" type="button">help</button>
+          <button class="command-button" data-command="summary" type="button">summary</button>
+          <button class="command-button" data-command="export accounts" type="button">export accounts</button>
+          <button class="command-button" data-command="export transactions" type="button">export transactions</button>
+        </div>
+        <div class="console-window" id="consoleOutput" aria-live="polite"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Create Account</h2>
+          <p>Create a new bank account with account number, name, and opening balance.</p>
+        </div>
+        <form id="createAccountForm" class="form-grid">
+          <label>
+            Account No
+            <input name="accNo" type="text" placeholder="1001" required>
+          </label>
+          <label>
+            Name
+            <input name="name" type="text" placeholder="Anika Sharma" required>
+          </label>
+          <label>
+            Opening Balance
+            <input name="balance" type="number" min="0" step="0.01" placeholder="5000" required>
+          </label>
+          <button type="submit">Create Account</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Transactions</h2>
+          <p>Deposit or withdraw funds. Withdrawals are blocked if they would make the balance negative.</p>
+        </div>
+        <form id="transactionForm" class="form-grid">
+          <label>
+            Account No
+            <input name="accNo" type="text" placeholder="1001" required>
+          </label>
+          <label>
+            Amount
+            <input name="amount" type="number" min="0.01" step="0.01" placeholder="1000" required>
+          </label>
+          <label>
+            Type
+            <select name="type">
+              <option value="deposit">Deposit</option>
+              <option value="withdraw">Withdraw</option>
+            </select>
+          </label>
+          <button type="submit">Apply Transaction</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Search Account</h2>
+          <p>Find an account by number and inspect its details and recent activity.</p>
+        </div>
+        <form id="searchForm" class="form-inline">
+          <label class="sr-only" for="searchAccNo">Account Number</label>
+          <input id="searchAccNo" name="accNo" type="text" placeholder="Enter account number" required>
+          <button type="submit">Search</button>
+        </form>
+        <article class="account-card" id="accountDetails">
+          <p class="muted">No account selected.</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Account Summary</h2>
+          <p>Overview of every stored account.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>AccNo</th>
+                <th>Name</th>
+                <th>Balance</th>
+                <th>Transactions</th>
+              </tr>
+            </thead>
+            <tbody id="summaryTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <template id="transactionListTemplate">
+    <ul class="transaction-list"></ul>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
