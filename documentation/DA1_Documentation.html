@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Banking System Documentation</title>
+  <style>
+    :root {
+      --ink: #1e2528;
+      --muted: #556167;
+      --line: #d7dfdd;
+      --accent: #0b6b5d;
+      --accent-soft: #e7f4f1;
+      --paper: #ffffff;
+      --bg: #f4f1ea;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 18px;
+      background: var(--paper);
+      padding: 18mm 16mm;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      page-break-after: always;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      color: #13333a;
+    }
+
+    h1 {
+      font-size: 30px;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid var(--accent-soft);
+      padding-bottom: 6px;
+    }
+
+    h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    p, li {
+      font-size: 14px;
+    }
+
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        linear-gradient(160deg, rgba(11, 107, 93, 0.1), transparent 40%),
+        linear-gradient(340deg, rgba(212, 149, 79, 0.13), transparent 38%),
+        var(--paper);
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .cover-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px 18px;
+      background: rgba(255, 255, 255, 0.84);
+      margin-top: 18px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 8px 12px;
+      font-size: 14px;
+      margin-top: 22px;
+    }
+
+    .label {
+      font-weight: 700;
+    }
+
+    .value {
+      color: var(--muted);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+      margin: 10px 0 0;
+    }
+
+    .pill-list li {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 11px;
+      background: #fbfdfc;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 9px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: var(--accent-soft);
+    }
+
+    code, .mono {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 12px;
+    }
+
+    pre {
+      margin: 8px 0 0;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      background: #fafcfb;
+      overflow: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 12px;
+    }
+
+    .shot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .shot {
+      border: 2px dashed #c9d5d1;
+      border-radius: 14px;
+      min-height: 150px;
+      padding: 12px;
+      background: #fbfcfb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .small {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .page {
+        width: auto;
+        min-height: auto;
+        margin: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="page cover">
+    <div>
+      <p class="eyebrow">Data Structures Assignment</p>
+      <h1>Mini Banking System with Transaction Log</h1>
+      <p>
+        This project implements a simple banking console system with account operations,
+        persistent storage, transaction history, search, summary view, and downloadable data files.
+      </p>
+      <div class="cover-card">
+        <strong>Submission Note</strong>
+        <p class="small">
+          Replace the placeholder values below with your own student details, hosted link,
+          repository link, and screenshots before final submission.
+        </p>
+      </div>
+      <div class="meta-grid">
+        <div class="label">Student Name</div><div class="value">________________</div>
+        <div class="label">Roll Number</div><div class="value">________________</div>
+        <div class="label">Course / Subject</div><div class="value">________________</div>
+        <div class="label">Hosted Link</div><div class="value">https://________________</div>
+        <div class="label">GitHub Repository</div><div class="value">https://________________</div>
+        <div class="label">Submission Date</div><div class="value">________________</div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Implemented Features</h3>
+      <ul class="pill-list">
+        <li>Create account</li>
+        <li>Deposit</li>
+        <li>Withdraw</li>
+        <li>Account summary</li>
+        <li>Search by AccNo</li>
+        <li>Transaction log</li>
+        <li>Last 5 transactions</li>
+        <li>File export</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="page">
+    <h2>Problem Statement</h2>
+    <p>
+      Create a simple banking console system that supports account creation, deposits, withdrawals,
+      account summary display, search by account number, persistent storage of accounts, and a
+      transaction log containing account number, transaction type, amount, and timestamp/date.
+    </p>
+
+    <h2>Feature List</h2>
+    <ol>
+      <li>Create account with <span class="mono">AccNo</span>, <span class="mono">Name</span>, and <span class="mono">Balance</span>.</li>
+      <li>Deposit money into an existing account.</li>
+      <li>Withdraw money while preventing negative balance.</li>
+      <li>Save account data persistently in browser local storage.</li>
+      <li>Download account data as <span class="mono">accounts.json</span>.</li>
+      <li>Maintain transaction log and download it as <span class="mono">transactions.json</span>.</li>
+      <li>Display all accounts in a summary table.</li>
+      <li>Search any account by account number.</li>
+      <li>Display the last 5 transactions for the selected account.</li>
+    </ol>
+
+    <h2>Structure and Function List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>STORAGE_KEYS</code></td><td>Constant Object</td><td>Stores persistent storage keys for accounts and transactions.</td></tr>
+        <tr><td><code>state</code></td><td>Object</td><td>Keeps current account and transaction data in memory.</td></tr>
+        <tr><td><code>bootstrap()</code></td><td>Function</td><td>Initializes the application and loads data.</td></tr>
+        <tr><td><code>handleCreateAccount()</code></td><td>Function</td><td>Creates a new account after validation.</td></tr>
+        <tr><td><code>handleTransaction()</code></td><td>Function</td><td>Handles deposit and withdrawal operations.</td></tr>
+        <tr><td><code>handleSearch()</code></td><td>Function</td><td>Searches account by account number.</td></tr>
+        <tr><td><code>renderSummary()</code></td><td>Function</td><td>Displays all accounts in table form.</td></tr>
+        <tr><td><code>renderAccount()</code></td><td>Function</td><td>Shows account details and last 5 transactions.</td></tr>
+        <tr><td><code>saveState()</code></td><td>Function</td><td>Saves account and transaction data.</td></tr>
+        <tr><td><code>makeTransaction()</code></td><td>Function</td><td>Creates a transaction log entry.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="page">
+    <h2>File Format Description</h2>
+
+    <h3>Account File: <span class="mono">accounts.json</span></h3>
+    <p>Each record stores account number, name, and current balance.</p>
+    <pre>[
+  {
+    "accNo": "1001",
+    "name": "Anika Sharma",
+    "balance": 5000
+  }
+]</pre>
+
+    <h3>Transaction Log File: <span class="mono">transactions.json</span></h3>
+    <p>Each log entry stores account number, transaction type, amount, and timestamp.</p>
+    <pre>[
+  {
+    "accNo": "1001",
+    "type": "deposit",
+    "amount": 250,
+    "timestamp": "2026-03-29T11:20:00.000Z"
+  }
+]</pre>
+
+    <h2>Testing Table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Test Case</th>
+          <th>Input / Action</th>
+          <th>Expected Result</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>TC-01</td><td>Create account <code>1003</code></td><td>Account is created and shown in summary.</td><td>Pass</td></tr>
+        <tr><td>TC-02</td><td>Create duplicate account <code>1001</code></td><td>Error shown and duplicate is blocked.</td><td>Pass</td></tr>
+        <tr><td>TC-03</td><td>Deposit <code>750</code> into <code>1002</code></td><td>Balance increases and log is added.</td><td>Pass</td></tr>
+        <tr><td>TC-04</td><td>Withdraw <code>500</code> from <code>1001</code></td><td>Balance decreases and log is added.</td><td>Pass</td></tr>
+        <tr><td>TC-05</td><td>Withdraw more than current balance</td><td>Operation is denied.</td><td>Pass</td></tr>
+        <tr><td>TC-06</td><td>Search valid account <code>1001</code></td><td>Details and recent transactions are shown.</td><td>Pass</td></tr>
+        <tr><td>TC-07</td><td>Search invalid account <code>9999</code></td><td>Not-found message appears.</td><td>Pass</td></tr>
+        <tr><td>TC-08</td><td>Export account and transaction files</td><td>JSON files download correctly.</td><td>Pass</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="page">
+    <h2>Screenshots</h2>
+    <p>Add at least 3 screenshots before final submission.</p>
+    <div class="shot-grid">
+      <div class="shot">Insert Screenshot 1<br>Home screen and summary view</div>
+      <div class="shot">Insert Screenshot 2<br>Create / deposit / withdraw action</div>
+      <div class="shot">Insert Screenshot 3<br>Search result with last 5 transactions</div>
+    </div>
+
+    <h2>AI Usage Declaration</h2>
+    <p>
+      AI assistance was used for project scaffolding, interface design, code organization,
+      and drafting documentation content. All output was reviewed and edited before submission.
+    </p>
+
+    <h2>Project Files</h2>
+    <ul>
+      <li><span class="mono">index.html</span> for the application structure</li>
+      <li><span class="mono">styles.css</span> for layout and visual design</li>
+      <li><span class="mono">app.js</span> for account logic and transaction handling</li>
+      <li><span class="mono">DA1_Documentation.md</span> for editable documentation source</li>
+      <li><span class="mono">DA1_Documentation.html</span> for PDF export layout</li>
+    </ul>
+
+    <p class="small">
+      Replace placeholders with your own details and add screenshots before you submit the final PDF.
+    </p>
+  </section>
+</body>
+</html>
